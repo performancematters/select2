@@ -4217,6 +4217,12 @@ S2.define('select2/dropdown/attachBody',[
     css.top -= parentOffset.top;
     css.left -= parentOffset.left;
 
+    if (this.options.get('alignRight')) {
+      var containerWidth = this.$container.width();
+      var dropdownWidth = this.$dropdown.width();
+      css.left -= (dropdownWidth - containerWidth);
+    }
+
     if (!isCurrentlyAbove && !isCurrentlyBelow) {
       newDirection = 'below';
     }
